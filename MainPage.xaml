@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM02P3747.MainPage">
+
+    <Grid x:Name="container">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="0" Orientation="Horizontal" Padding="10">
+            <Button Text="Nueva Nota"
+                    x:Name="nuevanota"
+                    Clicked="nuevanota_Clicked"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    CornerRadius="10"/>
+        </StackLayout>
+
+
+        <CollectionView x:Name="listaCollection"
+                    ItemsSource="{Binding Lista}"
+                    SelectionMode="Single"
+                    SelectionChanged="listaCollection_SelectionChanged"
+                    Grid.Row="1">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Frame Grid.RowSpan="2"
+                               Padding="0"
+                               CornerRadius="40"
+                               BackgroundColor="Transparent">
+                                <Image Source="{Binding PhotoRecord}"
+                                   Aspect="AspectFill"
+                                   HeightRequest="80"
+                                   WidthRequest="80"
+                                   />
+                            </Frame>
+
+                            <StackLayout Grid.Column="1" VerticalOptions="Center">
+                                <Label Text="{Binding Descripcion}" FontAttributes="Bold" FontSize="18"/>
+                                <Label Text="{Binding Fecha}" FontSize="16"/>
+                            </StackLayout>
+                        </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="10">
+            <Button Text="Actualizar" 
+                Clicked="Actualizar_Clicked" 
+                BackgroundColor="#2196F3" 
+                TextColor="White"
+                CornerRadius="10"/>
+            <Button Text="Eliminar" 
+                Clicked="Eliminar_Clicked" 
+                BackgroundColor="#FF5722" 
+                TextColor="White"
+                CornerRadius="10"/>
+            <Button Text="Reproducir Audio" 
+                Clicked="ReproducirAudio_Clicked" 
+                BackgroundColor="#673AB7" 
+                TextColor="White"
+                CornerRadius="10"/>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

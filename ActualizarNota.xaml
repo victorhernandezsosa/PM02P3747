@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM02P3747.ActualizarNota"
+             Title="ActualizarNota"
+             xmlns:sys="clr-namespace:System;assembly=netstandard">
+
+    <StackLayout Padding="20">
+        <Grid ColumnDefinitions="*,120" VerticalOptions="Center" Margin="0,20,0,20">
+            <Image x:Name="fotoImage"
+                   HeightRequest="200"
+                   Aspect="AspectFill"
+                   Grid.Column="0"/>
+            <Button Text="Tomar foto"
+                    Grid.Column="1"
+                    HeightRequest="50"
+                    Clicked="foto_Clicked"
+                    BackgroundColor="#2196F3"
+                    TextColor="White"/>
+        </Grid>
+        
+                    <Entry x:Name="entryNumero" IsReadOnly="true" IsVisible="false"/>
+
+
+        <Entry Placeholder="Ingrese una Descripcion"
+               Margin="0,0,0,20"
+               x:Name="Descripciontxt"/>
+
+        <DatePicker x:Name="FechaPicker"
+                    Margin="0,0,0,20"
+                    Date="{x:Static sys:DateTime.Now}" />
+
+        <Button Text="Grabar Audio"
+                BackgroundColor="#4CAF50"
+                TextColor="White"
+                x:Name="audios"
+                Clicked="audio_Clicked"
+                Margin="0,0,0,20"/>
+
+        <Button Text="Guardar"
+                BackgroundColor="#2196F3"
+                TextColor="White"
+                x:Name="save"
+                Clicked="save_Clicked"/>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM02P3747.CrearNota"
+             Title="Crear Nota"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+
+    <StackLayout Spacing="15" Padding="20">
+
+        <Image x:Name="fotoImage"
+               HeightRequest="200"
+               Aspect="AspectFit"/>
+
+        <Entry x:Name="entryNumero" IsReadOnly="true" IsVisible="false"/>
+
+
+        <Button Text="Tomar Foto"
+                x:Name="foto"
+                HeightRequest="50"
+                Clicked="foto_Clicked"
+                BackgroundColor="#2196F3"
+                TextColor="White"/>
+
+        <Entry Placeholder="Ingrese una Descripción" 
+               x:Name="Descripciontxt"
+               FontSize="16"/>
+
+        <DatePicker x:Name="FechaPicker" 
+                    Date="{x:Static sys:DateTime.Now}" 
+                    FontSize="16"/>
+
+        <Button Text="Grabar Audio" 
+                x:Name="audio" 
+                Clicked="audio_Clicked"
+                BackgroundColor="#4CAF50"
+                TextColor="White"
+                FontSize="16"/>
+
+        <Button Text="Guardar" 
+                x:Name="save" 
+                Clicked="save_Clicked"
+                BackgroundColor="#00BCD4"
+                TextColor="White"
+                FontSize="16"/>
+    </StackLayout>
+</ContentPage>
